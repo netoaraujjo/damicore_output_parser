@@ -17,7 +17,9 @@ function __init__()
 
   clustering_data = sortrows(read_csv_file(fname, '\t'))
   data_set = read_csv_file(fname_data, ',')
-  println(data_set)
+
+  merged_data = data_merge(clustering_data, data_set)
+  println(merged_data)
 end
 
 end

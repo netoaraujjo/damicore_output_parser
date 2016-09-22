@@ -8,7 +8,9 @@ module DataParser
 
 export data_merge
 
-function data_merge(clustering_data::Array, data_set::Array)
+function data_merge(clustering_data::Array{Any}, data_set::Array{Any})
+  merged_data = [clustering_data[:, 1] data_set clustering_data[:, 2]]
+  return merged_data
 end
 
 end

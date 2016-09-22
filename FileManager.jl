@@ -30,7 +30,7 @@ end
 function read_csv_file(fname::AbstractString, sep::Char)
   content = ""
   try
-    content = readdlm(fname, sep)
+    content = readdlm(fname, sep, Any)
   catch ex
     println("Erro ao abrir o arquivo: $fname")
     showerror(STDOUT, ex)
