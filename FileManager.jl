@@ -6,7 +6,7 @@
 
 module FileManager
 
-export read_txt_file, read_csv_file
+export read_txt_file, read_csv_file, write_file
 
 # Le o arquivo retornando uma array com cada linha lida
 # @fname nome do arquivo
@@ -36,6 +36,18 @@ function read_csv_file(fname::AbstractString, sep::Char)
     showerror(STDOUT, ex)
   finally
     return content
+  end
+end
+
+# Salva o conteudo mesclado em arquivo
+# @merged_data dados a serem salvos no arquivo
+# @fname nome do arquivo a ser salvo
+function write_file(merged_data::Array{Any}, fname::AbstractString)
+  try
+    writedlm(fname, merged_data, ' ')
+  catch ex
+    println("Erro ao salvar o arquivo: $fname")
+    showerror(STDOUT, ex)
   end
 end
 
